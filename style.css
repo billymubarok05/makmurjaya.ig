@@ -41,6 +41,11 @@ h1, h2, h3, h4 {
 
 .section-title {
     margin-bottom: 50px;
+    text-align: center;
+}
+
+.section-title.text-left {
+    text-align: left;
 }
 
 .section-title h2 {
@@ -483,6 +488,32 @@ h1, h2, h3, h4 {
     padding: 100px 0;
 }
 
+.portfolio-filter {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    border-radius: 30px;
+    border: 1px solid #E2E8F0;
+    background: var(--white);
+    color: var(--gray-text);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+}
+
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -495,6 +526,10 @@ h1, h2, h3, h4 {
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: var(--transition);
+}
+
+.portfolio-item.hide {
+    display: none;
 }
 
 .portfolio-item:hover {
@@ -733,6 +768,56 @@ h1, h2, h3, h4 {
     font-size: 0.875rem;
 }
 
+/* Floating Utilities */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 54px;
+    height: 54px;
+    background-color: #25D366;
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 95px;
+    right: 30px;
+    width: 44px;
+    height: 44px;
+    background: var(--dark-card);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    z-index: 998;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
 /* Responsive Styles */
 @media (max-width: 992px) {
     .hero-container, .contact-wrapper, .footer-container {
@@ -758,6 +843,8 @@ h1, h2, h3, h4 {
         flex-direction: column;
         background-color: var(--white);
         width: 100%;
+        max-height: calc(100vh - 90px);
+        overflow-y: auto;
         padding: 30px;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         transition: var(--transition);
